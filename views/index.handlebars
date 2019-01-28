@@ -1,0 +1,56 @@
+<div class="container">
+    <!-- First row Where Header and Image Will go -->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <!-- Heading and Image/Logo -->
+        <div class="col-sm-4">
+            <h1 class="pacifico-text">The Burger Spot</h1>
+            <br>
+            <img src="/public/assets/img/burger.jpg"> 
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <br>
+    <!-- Second row That Will be Broken Will Have Burgers Ordered and Burgers Devoured -->
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <!-- Burgers Ordered -->
+        <div class="col-sm-3">
+            <h4 class="pacifico-text">Burgers Ordered!</h4>
+            <ul class="burger-text">
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devour=true }}
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <!-- Burgers Already Devoured -->
+        <div class="col-sm-3">
+            <h4 class="pacifico-text">Burgers Devoured!</h4>
+            <ul class="burger-text">
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{> burgers/burger-block devour=false}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <!-- Third row That Will be the Area for Text Input From User -->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <!-- Text Input and Submit Button -->
+        <div class="col-sm-4">
+            <form class="burger-text burger-form">
+                <div class="form-group">
+                    <label for="burgerInput"><strong>Enter a Burger to Devour!</strong></label>
+                    <textarea class="form-control" id="burgerInput" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success" id="burgerSubmit">Submit</button>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
